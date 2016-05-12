@@ -6,6 +6,6 @@ Project.class_eval do
   scope :with_kubernetes_roles, -> { where(id: Kubernetes::Role.pluck('distinct project_id')) }
 
   def name_for_label
-    name.parameterize('-')
+    name.parameterize(separator: '-')
   end
 end
