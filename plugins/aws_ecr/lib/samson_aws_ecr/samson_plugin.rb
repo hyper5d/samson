@@ -44,7 +44,7 @@ module SamsonAwsEcr
       end
 
       def credentials_stale?
-        ecr_client && (!credentials_expire_at || credentials_expire_at < Time.current)
+        ecr_client && (!credentials_expire_at || credentials_expire_at < 1.hour.from_now)
       end
     end
   end
